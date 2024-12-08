@@ -2,7 +2,7 @@
 
 This project is a simple **Meme Generator** built using React. It allows users to create custom memes by overlaying text on randomly fetched meme templates. The project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
-![Meme Generator Screenshot](./screenshot.png)  
+![Meme Generator Screenshot](https://github.com/mrunal0502/MERN-Stack-/blob/main/React/memegenerator/src/MEME%20Generator.PNG)  
 *Screenshot of the Meme Generator output*
 
 ---
