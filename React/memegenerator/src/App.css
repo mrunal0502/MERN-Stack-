@@ -1,0 +1,141 @@
+.header {
+  display: flex;
+  align-items: center;
+  height: 65px;
+  background: linear-gradient(90deg, #672280 1.18%, #A626D3 100%);
+  color: white;
+  padding: 20px;
+}
+
+.header--img {
+  height: 190%;
+  margin-right: 8px;
+}
+
+.header--title {
+  font-size: 20px;
+  margin-right: auto;
+}
+
+.header--project {
+  font-size: 12px;
+  font-weight: 500;
+}
+
+
+* {
+  margin: 0px;
+  padding: 0px;
+  box-sizing: border-box;
+}
+
+
+.meme--img {
+  max-width: 100%;
+  height: auto;
+}
+
+
+.form {
+  display: grid;
+  grid-template: 40px 40px / 1fr 1fr;
+  gap: 17px;
+}
+
+.form--button {
+  grid-column: 1 / -1;
+  font-family: "Karla", sans-serif;
+  border-radius: 5px;
+  background: linear-gradient(90deg, #672280 1.18%, #A626D3 100%);
+  color: white;
+  border: none;
+  cursor: pointer;
+}
+
+main {
+  padding: 36px;
+}
+
+.form--input {
+  font-family: "Karla", sans-serif;
+  border-radius: 5px;
+  border: 1px solid #D5D4D8;
+  text-indent: 5px;
+}
+
+
+
+.header {
+  display: flex;
+  align-items: center;
+  height: 65px;
+  background: linear-gradient(90deg, #672280 1.18%, #A626D3 100%);
+  color: white;
+  padding: 20px;
+}
+
+.header--img {
+  height: 190%;
+  margin-right: 8px;
+}
+
+.header--title {
+  font-size: 20px;
+  margin-right: auto;
+}
+
+.header--project {
+  font-size: 12px;
+  font-weight: 500;
+}
+
+
+
+
+
+
+
+
+.meme {
+  position: relative;
+  width: 500px;
+  /* Fixed width for the meme container */
+  height: 450px;
+  /* Fixed height for the meme container */
+  margin: 20px auto;
+  /* Centers the meme in the parent container */
+}
+
+.meme--img {
+  width: 100%;
+  height: 100%;
+  /* Ensures the image fills the container dimensions */
+  display: block;
+}
+
+.meme--text {
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%);
+  color: white;
+  font-size: 2rem;
+  /* Bigger font size */
+  font-weight: bold;
+  text-shadow: 3px 3px 6px black, -3px -3px 6px black;
+  /* Black shadow for better visibility */
+  text-align: center;
+  padding: 5px;
+  width: 90%;
+  word-wrap: break-word;
+}
+
+.meme--text.top {
+  top: 15px;
+  /* Adjusts vertical position for top text */
+}
+
+.meme--text.bottom {
+  bottom: 15px;
+  /* Adjusts vertical position for bottom text */
+}
+
