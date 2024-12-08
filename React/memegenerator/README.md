@@ -24,36 +24,9 @@ Follow these steps to set up and run the project locally:
 - Node.js installed on your system.
 - Basic knowledge of React (optional but helpful).
 
-### Installation
 
-1. Clone the repository:
-   ```bash
-   git clone <repository-url>
-   cd memegenerator
-Install dependencies:
-bash
-Copy code
-npm install
-Running the Application
-Start the app in development mode:
 
-bash
-Copy code
-npm start
-The app will run on http://localhost:3000. Open this link in your browser to use the Meme Generator.
-
-Project Structure
-kotlin
-Copy code
-src/
-├── App.css           // Styling for the app
-├── App.js            // Main component rendering the meme generator
-├── Meme.js           // Component handling meme creation logic
-├── Nav.js            // Navigation bar component
-├── data.js           // Contains hardcoded data or API integration logic
-├── index.css         // Global styles
-├── index.js          // Entry point of the app
-How to Use
+### How to Use
 Click the "Generate Meme" button to fetch a random meme template.
 Enter your desired text in the "Top Text" and "Bottom Text" input fields.
 The meme will update in real time with your custom text.
@@ -65,7 +38,7 @@ Runs the app in development mode. Open http://localhost:3000 to view it in your 
 npm run build
 Builds the app for production in the build folder, optimizing it for performance.
 
-Technologies Used
+### Technologies Used
 React: For building the user interface.
 CSS: For styling components.
 API Integration: For fetching meme templates.
