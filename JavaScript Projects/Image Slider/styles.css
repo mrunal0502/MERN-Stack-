@@ -1,0 +1,53 @@
+.slider {
+    position: relative;
+    width: 100%;
+    max-width: 800px;
+    /* Limit slider width */
+    margin: auto;
+    overflow: hidden;
+}
+
+.slider img {
+    width: 100%;
+    height: auto;
+    /* Maintain aspect ratio */
+    display: none;
+}
+
+img.displaySlide {
+    display: block;
+    width: 100%;
+    height: auto;
+}
+
+button.prev,
+button.next {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    background-color: rgba(0, 0, 0, 0.5);
+    /* Semi-transparent background */
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    cursor: pointer;
+    font-size: 18px;
+    z-index: 1;
+    /* Ensure buttons are on top */
+}
+
+button.prev {
+    left: 10px;
+    /* Position on the left */
+}
+
+button.next {
+    right: 10px;
+    /* Position on the right */
+}
+
+button.prev:hover,
+button.next:hover {
+    background-color: rgba(0, 0, 0, 0.8);
+    /* Darker background on hover */
+}
