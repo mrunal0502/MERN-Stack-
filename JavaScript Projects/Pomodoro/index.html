@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pomodoro</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+
+<body>
+    <h1 id="myH1">Pomodoro</h1>
+    <div id="container">
+        <div id="buttons">
+            <button onclick="pomodoro()">Pomodoro</button>
+            <button onclick="shortbreak()">Short Break</button>
+            <button onclick="longbreak()">Long Break</button>
+        </div>
+        <div id="display"></div>
+        <div id="lower-buttons">
+            <button onclick="startTimer()">Start</button>
+            <button onclick="pauseTimer()">Pause</button>
+        </div>
+    </div>
+    <div id="streaks">
+        <h4 id="counter"></h4>
+        <h4>Time to Focus</h4>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+
+</html>
