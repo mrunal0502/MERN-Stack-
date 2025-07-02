@@ -1,0 +1,28 @@
+.cats{
+    float:left;
+    background-color:cyan;
+    width: 400px;
+    height: 400px;
+}
+
+.cats img{
+    float:left;
+    width: 100px;
+    height: 100px;
+}
+
+.dogs{
+    float:right;
+    background-color: rgba(255, 221, 0, 0.985);
+    width: 400px;
+        height: 400px;
+}
+
+.dogs img{
+    float: left;
+}
+
+
+footer{
+    clear : both;
+}

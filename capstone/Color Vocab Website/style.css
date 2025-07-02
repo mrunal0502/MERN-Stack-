@@ -1,0 +1,47 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+.color-title{
+    font-weight: normal;
+    margin: 10px;
+}
+
+div{
+     width: 200px;
+     height: 200px;
+}
+
+.red{
+    background-color: red;
+}
+
+#red {
+    color: red;
+}
+
+#green{
+  color: green;
+}
+
+.green {
+    background-color: green;
+}
+
+.blue{
+    background: blue;
+}
+
+#blue{
+    color: blue;
+}
+
+.yellow{
+    background: yellow;
+}
+
+#yellow{
+    color: yellow;
+}
