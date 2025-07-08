@@ -15,20 +15,45 @@
             <img src="images/tesla.jpg" alt="Tesla">
         </div>
     </div>
-    <!-- <div class="card" style="max-width: 540px;">
-        <div class="row g-0">
-            <div class="col-md-4">
-                <img src="images/tesla.jpg" class="img-fluid rounded-start" alt="...">
+    <div class="card">
+        <div class="blog">
+            <div class="header">
+                <h3>Meta's AI Race</h3>
             </div>
-            <div class="col-md-8">
-                <div class="card-body">
-                    <h5 class="card-title">Card title</h5>
-                    <p class="card-text">This is a wider card with supporting text below as a natural lead-in to
-                        additional
-                        content. This content is a little bit longer.</p>
-                    <p class="card-text"><small class="text-body-secondary">Last updated 3 mins ago</small></p>
-                </div>
+            <div class="info">
+                <p>Meta's preparation to lead in the AI race by hiring OpenAI's talent with a joining bonus of whopping
+                    $100 Million</p>
             </div>
         </div>
-    </div> -->
-    <%- include("partials/footer.ejs") %>
+        <div class="img">
+            <img src="images/meta.png" alt="Meta">
+        </div>
+    </div>
+    <% if (formData) { %>
+        <div class="card">
+            <div class="blog">
+                <div class="header">
+                    <h3>
+                        <%= formData.title %>
+                    </h3>
+                </div>
+                <div class="info">
+                    <p>
+                        <%= formData.content %>
+                    </p>
+                </div>
+            </div>
+            <div class="img">
+                <img src="images/<%= formData.img %>.png" alt="<%= formData.title %>">
+            </div>
+            <div class="controls">
+                <form action="/edit" method="POST" style="display:inline;">
+                    <button type="submit" id="edit">Edit</button>
+                </form>
+                <form action="/delete" method="POST" style="display:inline;">
+                    <button type="submit" id="delete">Delete</button>
+                </form>
+            </div>
+        </div>
+        <% } %>
+            <%- include("partials/footer.ejs") %>
