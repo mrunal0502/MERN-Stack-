@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sip & Serve</title>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display&family=Poppins&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="/styles/main.css">
+    <link rel="stylesheet" href="/styles/explore.css">
+</head>
+
+<body>
+    <%- include('partials/header') %>
+        <main class="explore-main">
+            <form id="searchForm" action="/search" method="get">
+                <input type="text" id="searchInput" name="query" placeholder="Search for a cocktail..." />
+                <button type="submit">Search</button>
+            </form>
+
+            <section class="cocktail-grid">
+                <% if (data && data.drinks) { %>
+                    <% data.drinks.forEach(drink=> { %>
+                        <a href="/recipe/<%= drink.idDrink%>">
+                            <div class="cocktail-card">
+                                <img src="<%= drink.strDrinkThumb %>" alt="<%= drink.strDrink %>" />
+                                <h3>
+                                    <%= drink.strDrink %>
+                                </h3>
+                            </div>
+                        </a>
+                        <% }); %>
+                            <% } else { %>
+                                <p>No drinks found. Try another search.</p>
+                                <% } %>
+            </section>
+        </main>
+
+        <%- include('partials/footer') %>
+
+</body>
+
+</html>

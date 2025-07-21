@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sip & Serve</title>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display&family=Poppins&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="/styles/main.css">
+    <link rel="stylesheet" href="/styles/searchoutput.css">
+</head>
+
+<body>
+    <%- include('partials/header') %>
+
+        <main class="explore-main">
+            <!-- Back Button -->
+            <a href="/explore" class="back-button">← Back to Explore</a>
+            <section class="cocktail-grid">
+                <% if (data.drinks && data.drinks.length> 0) { %>
+                    <% let len=(data.drinks.length < 50) ? data.drinks.length : 50 %>
+                        <% for (let i=0; i < len; i++) { %>
+                            <a href="/recipe/<%= data.drinks[i].idDrink%>">
+                                <div class="cocktail-card">
+                                    <img src="<%= data.drinks[i].strDrinkThumb %>"
+                                        alt="<%= data.drinks[i].strDrink %>" />
+                                    <h3>
+                                        <%= data.drinks[i].strDrink %>
+                                    </h3>
+                                </div>
+                            </a>
+                            <% } %>
+                                <% } else { %>
+                                    <p>No cocktails found. Try a different name!</p>
+                                    <% } %>
+
+            </section>
+        </main>
+        <%- include('partials/footer') %>
+</body>
+
+</html>

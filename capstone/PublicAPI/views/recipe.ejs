@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sip & Serve</title>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display&family=Poppins&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="/styles/main.css">
+    <link rel="stylesheet" href="/styles/recipe.css">
+</head>
+
+<body>
+
+    <%- include('partials/header') %>
+        <main>
+            <% if (data && data.drinks) { %>
+                <h1 class="title">
+                    <%= data.drinks[0].strDrink %>
+                </h1>
+                <p class="category">
+                    <%= data.drinks[0].strAlcoholic %>
+                </p>
+                <div class="container">
+                    <div class="left">
+                        <img src=<%=data.drinks[0].strDrinkThumb %> alt="drink image">
+                    </div>
+                    <div class="right">
+                        <table>
+                            <tr>
+                                <th>Ingredients</th>
+                                <th>Measurements</th>
+                            </tr>
+                            <% for (let i=1; i <=15; i++) { let ingredient=data.drinks[0][`strIngredient${i}`]; let
+                                measure=data.drinks[0][`strMeasure${i}`]; if (ingredient) { %>
+                                <tr>
+                                    <td>
+                                        <%= ingredient %>
+                                    </td>
+                                    <td>
+                                        <%= measure ? measure : '' %>
+                                    </td>
+                                </tr>
+                                <% } } %>
+                        </table>
+                        <div class="instructions-box">
+                            <h2>How to Make It</h2>
+                            <p>
+                                <%= data.drinks[0].strInstructions %>
+                            </p>
+                        </div>
+
+                    </div>
+                </div>
+                <%} else { %>
+                    <p>No drinks found. Try another search.</p>
+                    <% } %>
+        </main>
+
+        <%- include('partials/footer') %>
+
+
+</body>
+
+</html>
