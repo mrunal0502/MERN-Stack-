@@ -14,7 +14,6 @@ const API_URL = "https://www.thecocktaildb.com/api/json/v1/1";
 app.set("view engine", "ejs");
 app.set("views", path.join(__dirname, "views"));
 app.use(express.static("public"));
-let id = "";
 
 app.get("/", async (req, res) => {
   try {

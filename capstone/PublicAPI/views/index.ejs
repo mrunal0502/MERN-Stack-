@@ -35,7 +35,7 @@
                             <p class="instructions">
                                 <%= drink.strInstructions.slice(0, 150) %>...
                             </p>
-                            <form action="/recipe" method="GET">
+                            <form action="/recipe/<%= drink.idDrink %>" method="GET">
                                 <input type="hidden" name="id" value="<%= drink.idDrink %>">
                                 <button type="submit" class="view-btn">View Recipe</button>
                             </form>
