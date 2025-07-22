@@ -121,11 +121,6 @@ This project is open source and available under the [MIT License](LICENSE).
 
 ---
 
-Let me know if you want me to:
-
-- Add the actual screenshots if you provide them.
-- Push it to GitHub with a `.gitignore`.
-- Auto-generate the Cocktail of the Week logic.
 
 You're all set! 🥂
 
