@@ -1,6 +1,6 @@
 ### 📄 `README.md`
 
-```markdown
+
 # 🍹 Sip & Serve
 
 Sip & Serve is a sleek and stylish cocktail recipe web application that fetches real-time data from [TheCocktailDB API](https://www.thecocktaildb.com/) to help users explore a variety of cocktails, view detailed recipes, and discover the Cocktail of the Week.
@@ -42,7 +42,6 @@ Sip & Serve is a sleek and stylish cocktail recipe web application that fetches 
 ---
 
 ## 📁 Project Structure
-```
 
 SipAndServe/
 │
@@ -63,7 +62,7 @@ SipAndServe/
 ├── package.json
 └── README.md
 
-````
+
 
 ---
 
@@ -115,7 +114,6 @@ Built with ❤️ by Mrunal Rawade
 
 This project is open source and available under the [MIT License](LICENSE).
 
-```
 
 ---
 
@@ -126,4 +124,4 @@ Let me know if you want me to:
 - Auto-generate the Cocktail of the Week logic.
 
 You're all set! 🥂
-```
+
