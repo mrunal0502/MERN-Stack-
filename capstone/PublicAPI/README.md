@@ -24,15 +24,15 @@ Sip & Serve is a sleek and stylish cocktail recipe web application that fetches 
 
 ### 🧾 Recipe Page
 
-![Recipe Page](PublicAPI/screenshots/recipe.PNG)
+![Recipe Page](screenshots/recipe.PNG)
 
 ### 🔍 Search Results
 
-![Search Results](PublicAPI/screenshots/search.PNG)
+![Search Results](screenshots/search.PNG)
 
 ### 🔍 Explore Page
 
-![Explore Page](PublicAPI/screenshots/explore.PNG)
+![Explore Page](screenshots/explore.PNG)
 
 ---
 
