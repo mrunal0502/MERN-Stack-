@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Mrunal's Reads</title>
+    <link rel="stylesheet" href="styles/main.css" />
+</head>
+
+<body>
+    <div class="container">
+        <header>
+            <h1>Mrunal’s Reads</h1>
+            <p>Short summary of each book that I’ve read</p>
+        </header>
+
+        <div class="controls" style="margin-bottom: 1.5rem;">
+            <input type="text" id="search-bar" placeholder="Search by book title..." />
+            <label for="date-filter">Date:</label>
+            <input type="date" id="date-filter" />
+            <label for="rating-filter">Rating:</label>
+            <select id="rating-filter">
+                <option value="">All</option>
+                <option value="10">10</option>
+                <option value="9">9</option>
+                <option value="8">8</option>
+                <option value="7">7</option>
+                <option value="6">6</option>
+                <option value="5">5</option>
+                <option value="4">4</option>
+                <option value="3">3</option>
+                <option value="2">2</option>
+                <option value="1">1</option>
+            </select>
+        </div>
+
+        <section id="books-list">
+            <div class="book-card">
+                <img id="cover-img" src="" alt="Book Cover" />
+                <div class="book-info">
+                    <h2 id="book-title">Loading...</h2>
+                    <p><strong>Date Read:</strong> 2025-06-08 | <strong>My rating:</strong> 10/10</p>
+                    <p>
+                        Atomic Habits by James Clear teaches how small daily habits, when done consistently, can lead to
+                        big changes over time.
+                        The book is practical, easy to understand, and full of real-life examples. It explains how to
+                        build good habits, break
+                        bad ones, and stay consistent with simple strategies.
+                    </p>
+                </div>
+            </div>
+        </section>
+    </div>
+
+    <script src="scripts/script.js"></script>
+</body>
+
+</html>

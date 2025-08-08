@@ -1,0 +1,94 @@
+body {
+    font-family: 'Georgia', serif;
+    background-color: #f3ece7;
+    margin: 0;
+    padding: 0;
+}
+
+
+.container {
+    max-width: 900px;
+    margin: 2rem auto;
+    padding: 2rem;
+    background-color: #fdfcf9;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.05);
+    border: 1px solid #ccc;
+}
+
+.controls {
+    display: flex;
+    gap: 1rem;
+    align-items: center;
+    background: #f3ece7;
+    border: 1px solid #b8a98a;
+    padding: 0.8rem 1rem;
+    border-radius: 6px;
+    font-family: 'Georgia', serif;
+    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.04);
+}
+
+#search-bar,
+#date-filter,
+#rating-filter {
+    font-family: 'Georgia', serif;
+    font-size: 1rem;
+    padding: 0.4rem 0.7rem;
+    border: 1px solid #b8a98a;
+    border-radius: 4px;
+    background: #fdfcf9;
+    color: #4b2e2e;
+    outline: none;
+    transition: border-color 0.2s;
+}
+
+#search-bar:focus,
+#date-filter:focus,
+#rating-filter:focus {
+    border-color: #4b2e2e;
+}
+
+.controls label {
+    color: #6c4c4c;
+    font-size: 1rem;
+    margin-right: 0.2rem;
+}
+
+header h1 {
+    font-size: 3rem;
+    color: #4b2e2e;
+    margin-bottom: 0;
+}
+
+header p {
+    font-size: 1rem;
+    color: #6c4c4c;
+    margin-top: 0.3rem;
+}
+
+hr {
+    margin: 1.5rem 0;
+    border: none;
+    border-top: 2px solid #ccc;
+}
+
+.book-card {
+    display: flex;
+    gap: 1.5rem;
+    align-items: flex-start;
+}
+
+.book-card img {
+    width: 200px;
+    height: 280px;
+    object-fit: cover;
+    background-color: #ddd;
+}
+
+.book-info h2 {
+    color: #3e2a2a;
+}
+
+.book-info p {
+    color: #555;
+    line-height: 1.6;
+}
