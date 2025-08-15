@@ -1,0 +1,207 @@
+Your design for **Mrunal's Reads** looks beautiful—very warm and classic, like an elegant retro newspaper! To integrate the **Open Library API** and achieve what you want (mainly fetching the **book cover and title**), here’s exactly how it will help:
+
+---
+
+### 🔍 **How Open Library API Helps**
+
+The Open Library Covers API allows you to **get book covers** using either:
+
+* ISBN
+* OLID (Open Library ID)
+* or other metadata like title & author (through search)
+
+#### ✅ What it gives you:
+
+* Book **title**
+* Book **cover image** (URL)
+* Basic metadata (authors, publish year, etc.)
+
+---
+
+### ✅ Example: How to Fetch Book Data by Title
+
+Here’s a simple **API call** using title (via Open Library Search API):
+
+```
+https://openlibrary.org/search.json?title=Atomic%20Habits
+```
+
+From this, you’ll get:
+
+* `title`
+* `cover_i` (which helps you get the cover image)
+* `author_name`
+* `first_publish_year`
+* and more
+
+To get the **cover image**, use:
+
+```
+https://covers.openlibrary.org/b/id/{cover_i}-L.jpg
+```
+
+So if `cover_i = 12345`, the image URL is:
+
+```
+https://covers.openlibrary.org/b/id/12345-L.jpg
+```
+
+---
+
+## 🧱 HTML + CSS + JS Template (based on your Canva design)
+
+Here’s a basic version replicating your layout:
+
+### 📄 `index.html`
+
+```html
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Mrunal's Reads</title>
+  <link rel="stylesheet" href="style.css"/>
+</head>
+<body>
+  <div class="container">
+    <header>
+      <h1>Mrunal’s Reads</h1>
+      <p>Tiny summary of each book that I’ve read</p>
+    </header>
+
+    <hr />
+
+    <section class="book-card">
+      <img id="cover-img" src="" alt="Book Cover" />
+      <div class="book-info">
+        <h2 id="book-title">Loading...</h2>
+        <p><strong>Date Read:</strong> 2025-06-08 | <strong>My rating:</strong> 10/10</p>
+        <p>
+          Atomic Habits by James Clear teaches how small daily habits, when done consistently, can lead to big changes over time.
+          The book is practical, easy to understand, and full of real-life examples. It explains how to build good habits, break
+          bad ones, and stay consistent with simple strategies.
+        </p>
+      </div>
+    </section>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>
+```
+
+---
+
+### 🎨 `style.css`
+
+```css
+body {
+  font-family: 'Georgia', serif;
+  background-color: #f3ece7;
+  margin: 0;
+  padding: 0;
+}
+
+.container {
+  max-width: 900px;
+  margin: 2rem auto;
+  padding: 2rem;
+  background-color: #fdfcf9;
+  box-shadow: 0 0 10px rgba(0,0,0,0.05);
+  border: 1px solid #ccc;
+}
+
+header h1 {
+  font-size: 3rem;
+  color: #4b2e2e;
+  margin-bottom: 0;
+}
+
+header p {
+  font-size: 1rem;
+  color: #6c4c4c;
+  margin-top: 0.3rem;
+}
+
+hr {
+  margin: 1.5rem 0;
+  border: none;
+  border-top: 2px solid #ccc;
+}
+
+.book-card {
+  display: flex;
+  gap: 1.5rem;
+  align-items: flex-start;
+}
+
+.book-card img {
+  width: 200px;
+  height: 280px;
+  object-fit: cover;
+  background-color: #ddd;
+}
+
+.book-info h2 {
+  color: #3e2a2a;
+}
+
+.book-info p {
+  color: #555;
+  line-height: 1.6;
+}
+```
+
+---
+
+### 🔧 `script.js`
+
+```javascript
+const title = "Atomic Habits";
+
+async function fetchBookCover(title) {
+  const res = await fetch(`https://openlibrary.org/search.json?title=${encodeURIComponent(title)}`);
+  const data = await res.json();
+
+  if (data.docs && data.docs.length > 0) {
+    const book = data.docs[0];
+    const coverId = book.cover_i;
+    const bookTitle = book.title;
+
+    if (coverId) {
+      document.getElementById("cover-img").src = `https://covers.openlibrary.org/b/id/${coverId}-L.jpg`;
+    } else {
+      document.getElementById("cover-img").src = "https://via.placeholder.com/200x280?text=No+Cover";
+    }
+
+    document.getElementById("book-title").textContent = bookTitle;
+  } else {
+    document.getElementById("book-title").textContent = "Book not found";
+  }
+}
+
+fetchBookCover(title);
+```
+
+---
+
+### 🗄️ PostgreSQL Table Suggestion
+
+You can store your **custom data** (rating, date read, summary) in a `books` table like:
+
+```sql
+CREATE TABLE books (
+  id SERIAL PRIMARY KEY,
+  title TEXT NOT NULL,
+  rating INTEGER,
+  date_read DATE,
+  summary TEXT
+);
+```
+
+When rendering, fetch the book from the DB by title, and use OpenLibrary to pull the cover dynamically.
+
+---
+
+Would you like me to help you hook this up to an Express server with EJS templates and PostgreSQL?

@@ -1,3 +1,40 @@
+const books = [
+  {
+    title: "Atomic Habits",
+    author: "James Clear",
+    date: "2025-06-08",
+    rating: 10,
+    summary:
+      "Atomic Habits by James Clear teaches how small daily habits, when done consistently, can lead to big changes over time. The book is practical, easy to understand, and full of real-life examples. It explains how to build good habits, break bad ones, and stay consistent with simple strategies.",
+  },
+
+  {
+    title: "Deep Work",
+    author: "Cal Newport",
+    date: "2025-07-15",
+    rating: 9,
+    summary:
+      "Deep Work by Cal Newport highlights the power of focused, distraction-free work in a world full of interruptions. It teaches how to train your mind, build discipline, and produce high-quality results.",
+  },
+
+  {
+    title: "Ikigai",
+    author: "Héctor García & Francesc Miralles",
+    date: "2025-08-05",
+    rating: 8,
+    summary:
+      "Ikigai explores the Japanese concept of purpose and how it contributes to a long, happy life. It combines philosophy, culture, and personal insights to help readers find meaning in daily life.",
+  },
+  {
+    title: "The Almanack of Naval Ravikant",
+    author: "Eric Jorgenson",
+    date: "2025-08-08",
+    rating: 10,
+    summary:
+      "This book compiles the wisdom of Naval Ravikant on wealth, happiness, and life. It offers deep insights into building a rich life through leverage, decision-making, and self-awareness.",
+  },
+];
+
 async function fetchBookCover(title) {
   const res = await fetch(
     `https://openlibrary.org/search.json?title=${encodeURIComponent(title)}`
