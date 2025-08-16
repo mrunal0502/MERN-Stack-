@@ -108,3 +108,10 @@ hr {
     font-family: 'Georgia', serif;
     transition: background-color 0.2s, transform 0.1s;
 }
+
+.add-book-btn{
+margin-left: 1rem; 
+font-size: 2rem; 
+text-decoration: none; 
+vertical-align: middle;
+}

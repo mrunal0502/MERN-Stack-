@@ -19,49 +19,14 @@ const db = new pg.Client({
 });
 db.connect();
 
-// const books = [
-//   {
-//     title: "Atomic Habits",
-//     author: "James Clear",
-//     date: "2025-06-08",
-//     rating: 10,
-//     summary:
-//       "Atomic Habits by James Clear teaches how small daily habits, when done consistently, can lead to big changes over time. The book is practical, easy to understand, and full of real-life examples. It explains how to build good habits, break bad ones, and stay consistent with simple strategies.",
-//   },
-
-//   {
-//     title: "Deep Work",
-//     author: "Cal Newport",
-//     date: "2025-07-15",
-//     rating: 9,
-//     summary:
-//       "Deep Work highlights the power of focused, distraction-free work in a world full of interruptions. It teaches how to train your mind, build discipline, and produce high-quality results.",
-//   },
-
-//   {
-//     title: "Ikigai",
-//     author: "Héctor García & Francesc Miralles",
-//     date: "2025-08-05",
-//     rating: 8,
-//     summary:
-//       "Ikigai explores the Japanese concept of purpose and how it contributes to a long, happy life. It combines philosophy, culture, and personal insights to help readers find meaning in daily life.",
-//   },
-//   {
-//     title: "The Almanack of Naval Ravikant",
-//     author: "Eric Jorgenson",
-//     date: "2025-08-08",
-//     rating: 10,
-//     summary:
-//       "This book compiles the wisdom of Naval Ravikant on wealth, happiness, and life. It offers deep insights into building a rich life through leverage, decision-making, and self-awareness.",
-//   },
-// ];
-
 app.get("/", async (req, res) => {
   try {
     // 1. Fetch all books from your database
-    const output = await db.query("SELECT * FROM books ORDER BY date DESC");
+    const output = await db.query(
+      "SELECT * FROM books ORDER BY date_read DESC"
+    );
     const books = output.rows;
-
+    console.log(books);
     // 2. Fetch cover images for each book
     const updatedBooks = await Promise.all(
       books.map(async (book) => {
@@ -100,6 +65,72 @@ app.get("/", async (req, res) => {
   } catch (error) {
     console.error(error);
     res.status(500).send("Error loading books");
+  }
+});
+
+app.get("/add", async (req, res) => {
+  res.render("form", { book: {}, editing: false });
+});
+
+app.post("/add", async (req, res) => {
+  const title = req.body.title;
+  const date_read = req.body.date_read;
+  const rating = req.body.rating;
+  const summary = req.body.summary;
+
+  try {
+    const book = await db.query(
+      "INSERT INTO books(title,date_read,rating,summary) VALUES($1,$2,$3,$4) RETURNING *",
+      [title, date_read, rating, summary]
+    );
+    console.log("Book added:", book.rows[0]);
+    res.redirect("/");
+  } catch (error) {
+    console.error("Error adding book:", error);
+  }
+});
+
+app.get("/edit/:id", async (req, res) => {
+  const id = req.params.id;
+  console.log("Editing book:", id);
+  try {
+    const result = await db.query("SELECT * FROM books WHERE id=$1", [id]);
+    if (result.rows.length === 0) {
+      return res.status(404).send("Book not found");
+    }
+    res.render("form", { book: result.rows[0], editing: true });
+  } catch (error) {
+    console.error("Error fetching book for edit:", error);
+    res.status(500).send("Error fetching book for edit");
+  }
+});
+
+app.post("/edit/:id", async (req, res) => {
+  const id = req.params.id;
+  const { title, date_read, rating, summary } = req.body;
+  console.log("Updating book:", id);
+  try {
+    await db.query(
+      "UPDATE books SET title = $1, date_read=$2, rating=$3, summary=$4 WHERE id = $5",
+      [title, date_read, rating, summary, id]
+    );
+    console.log("Book updated:", id);
+    res.redirect("/");
+  } catch (error) {
+    console.error("Error updating book:", error);
+    res.status(500).send("Error updating book");
+  }
+});
+
+app.post("/delete", async (req, res) => {
+  const id = req.body.bookId;
+  console.log("Deleting book:", id);
+  try {
+    await db.query("DELETE from books WHERE id=$1", [id]);
+    console.log("Book deleted:", id);
+    res.redirect("/");
+  } catch (error) {
+    console.error("Error deleting book:", error);
   }
 });
 

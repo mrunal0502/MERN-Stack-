@@ -28,9 +28,12 @@
                     </option>
                     <% } %>
             </select>
+            <a href="/add" class="add-book-btn" title="Add New Book">+ </a>
         </div>
 
         <section id="books-list">
+            <!-- <p>Books count: <%= books.length %> -->
+            </p>
             <% for (let book of books) { %>
                 <div class="book-card">
                     <img class="cover-img" src="<%= book.coverUrl %>" alt="Book Cover" />
@@ -39,12 +42,17 @@
                             <%= book.title %>
                         </h2>
                         <div class="button">
-                            <button class="edit-button">Edit</button>
-                            <button class="delete-button">Delete</button>
+                            <a href="/edit/<%=book.id%>" class="edit-button">
+                                <button class="edit-button" type="submit">Edit</button>
+                            </a>
+                            <form action="/delete" method="POST" class="delete-form">
+                                <input type="hidden" name="bookId" value="<%= book.id %>" />
+                                <button class="delete-button">Delete</button>
+                            </form>
                         </div>
                         <p>
                             <strong>Date Read:</strong>
-                            <%= book.date %> |
+                            <%= new Date(book.date_read).toISOString().slice(0, 10) %> |
                                 <strong>My rating:</strong>
                                 <%= book.rating %>/10
                         </p>

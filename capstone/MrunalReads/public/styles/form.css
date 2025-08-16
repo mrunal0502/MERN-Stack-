@@ -1,0 +1,110 @@
+body {
+    font-family: 'Georgia', serif;
+    background-color: #f3ece7;
+    margin: 0;
+    padding: 0;
+}
+
+.container {
+    max-width: 600px;
+    margin: 2.5rem auto;
+    padding: 2rem 2.5rem;
+    background-color: #fdfcf9;
+    border: 1.5px solid #b8a98a;
+    box-shadow: 0 0 10px rgba(0,0,0,0.07);
+    border-radius: 8px;
+}
+
+header h1 {
+    font-size: 2.2rem;
+    color: #4b2e2e;
+    text-align: center;
+    margin-bottom: 1.2rem;
+    letter-spacing: 1px;
+    font-family: 'Georgia', serif;
+    text-shadow: 0 1px 0 #fff, 0 2px 0 #e2d3c2;
+}
+
+.book-form {
+    display: flex;
+    flex-direction: column;
+    gap: 1.3rem;
+}
+
+.book-form label {
+    font-size: 1.1rem;
+    color: #6c4c4c;
+    margin-bottom: 0.3rem;
+    font-family: 'Georgia', serif;
+    letter-spacing: 0.5px;
+}
+
+.book-form input[type="text"],
+.book-form input[type="date"],
+.book-form input[type="number"],
+.book-form textarea {
+    width: 100%;
+    padding: 0.6rem 0.9rem;
+    border: 1px solid #b8a98a;
+    border-radius: 4px;
+    font-size: 1rem;
+    background: #fdfcf9;
+    color: #4b2e2e;
+    font-family: 'Georgia', serif;
+    box-shadow: 0 1px 0 #e2d3c2;
+    transition: border-color 0.2s;
+}
+
+.book-form input:focus,
+.book-form textarea:focus {
+    border-color: #4b2e2e;
+    outline: none;
+}
+
+.book-form textarea {
+    resize: vertical;
+    min-height: 80px;
+    max-height: 200px;
+}
+
+.book-form button[type="submit"] {
+    background: #b8a98a;
+    color: #fff;
+    border: none;
+    border-radius: 4px;
+    padding: 0.7rem 0;
+    font-size: 1.1rem;
+    font-family: 'Georgia', serif;
+    font-weight: 600;
+    cursor: pointer;
+    margin-top: 0.5rem;
+    letter-spacing: 1px;
+    box-shadow: 0 1px 0 #e2d3c2;
+    transition: background 0.2s, transform 0.1s;
+}
+
+.book-form button[type="submit"]:hover {
+    background: #4b2e2e;
+    color: #fffbe7;
+    transform: translateY(-2px) scale(1.03);
+}
+
+a {
+    color: #7b5cff;
+    text-decoration: none;
+    font-size: 1rem;
+    font-family: 'Georgia', serif;
+}
+
+a:hover {
+    text-decoration: underline;
+}
+
+@media (max-width: 700px) {
+    .container {
+        padding: 1rem 0.5rem;
+    }
+    .book-form button[type="submit"] {
+        font-size: 1rem;
+    }
+}
