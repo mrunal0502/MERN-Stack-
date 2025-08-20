@@ -226,13 +226,13 @@ This project is licensed under the MIT License - see the [LICENSE](LICENSE) file
 ## 📸 Screenshots
 
 ### 🏠 Homepage
-![Homepage](./New%20folder/index%20page.PNG)
+![Homepage](./New%20folder/Capture.PNG)
 
 ### ➕ Add New Book
 ![Add Book](./New%20folder/new%20book.PNG)
 
 ### 📚 All Books View
-![All Books](./New%20folder/Capture.PNG)
+![All Books](./New%20folder/index%20page.PNG)
 
 ---
 
