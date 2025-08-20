@@ -213,8 +213,8 @@ This project is licensed under the MIT License - see the [LICENSE](LICENSE) file
 
 **Mrunal** - _Full Stack Developer_
 
-- GitHub: [@yourusername](https://github.com/mrunal0502)
-- LinkedIn: [Your LinkedIn](https://linkedin.com/in/mrunalrawade)
+- GitHub: [mrunal0502](https://github.com/mrunal0502)
+- LinkedIn: [mrunalrawade](https://linkedin.com/in/mrunalrawade)
 
 ## 🙏 Acknowledgments
 
