@@ -225,8 +225,14 @@ This project is licensed under the MIT License - see the [LICENSE](LICENSE) file
 
 ## 📸 Screenshots
 
-_Add screenshots of your application here to showcase the design and functionality_
-![Homepage Screenshot](./New%20Folder/index.png)
+### 🏠 Homepage
+![Homepage](./New%20folder/index%20page.PNG)
+
+### ➕ Add New Book
+![Add Book](./New%20folder/new%20book.PNG)
+
+### 📚 All Books View
+![All Books](./New%20folder/Capture.PNG)
 
 ---
 
