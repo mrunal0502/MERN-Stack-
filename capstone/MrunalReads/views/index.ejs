@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+<!-- <!DOCTYPE html>
 <html lang="en">
 
 <head>
@@ -14,46 +14,34 @@
             <h1>Mrunal’s Reads</h1>
             <p>Short summary of each book that I’ve read</p>
         </header>
-
         <div class="controls" style="margin-bottom: 1.5rem;">
-            <input type="text" id="search-bar" placeholder="Search by book title..." />
-            <label for="date-filter">Date:</label>
-            <input type="date" id="date-filter" />
-            <label for="rating-filter">Rating:</label>
-            <select id="rating-filter">
-                <option value="">All</option>
-                <% for (let i=10; i>= 1; i--) { %>
-                    <option value="<%= i %>">
-                        <%= i %>
-                    </option>
-                    <% } %>
-            </select>
-            <a href="/add" class="add-book-btn" title="Add New Book">+ </a>
+            <form action="/search" method="GET" class="search-form"> <input type="text" id="search-bar"
+                    placeholder="Search by book title..." name="bookName" /> <label for="date-filter">Date:</label>
+                <input type="date" id="date-filter" name="bookdate" /> <label for="rating-filter">Rating:</label>
+                <select id="rating-filter" name="bookrating">
+                    <option value="">All</option>
+                    <% for (let i=10; i>= 1; i--) { %> <option value="<%= i %>">
+                            <%= i %>
+                        </option>
+                        <% } %>
+                </select>
+                <button type="submit">Apply Filters</button>
+            </form> <a href="/add" class="add-book-btn" title="Add New Book">+ </a>
         </div>
-
-        <section id="books-list">
-            <!-- <p>Books count: <%= books.length %> -->
-            </p>
+        <section id="books-list"> 
             <% for (let book of books) { %>
-                <div class="book-card">
-                    <img class="cover-img" src="<%= book.coverUrl %>" alt="Book Cover" />
+                <div class="book-card"> <img class="cover-img" src="<%= book.coverUrl %>" alt="Book Cover" />
                     <div class="book-info">
                         <h2 class="book-title">
                             <%= book.title %>
                         </h2>
-                        <div class="button">
-                            <a href="/edit/<%=book.id%>" class="edit-button">
-                                <button class="edit-button" type="submit">Edit</button>
-                            </a>
-                            <form action="/delete" method="POST" class="delete-form">
-                                <input type="hidden" name="bookId" value="<%= book.id %>" />
-                                <button class="delete-button">Delete</button>
-                            </form>
+                        <div class="button"> <a href="/edit/<%=book.id%>" class="edit-button"> <button
+                                    class="edit-button" type="submit">Edit</button> </a>
+                            <form action="/delete" method="POST" class="delete-form"> <input type="hidden" name="bookId"
+                                    value="<%= book.id %>" /> <button class="delete-button">Delete</button> </form>
                         </div>
-                        <p>
-                            <strong>Date Read:</strong>
-                            <%= new Date(book.date_read).toISOString().slice(0, 10) %> |
-                                <strong>My rating:</strong>
+                        <p> <strong>Date Read:</strong>
+                            <%= new Date(book.date_read).toISOString().slice(0, 10) %> | <strong>My rating:</strong>
                                 <%= book.rating %>/10
                         </p>
                         <p>
@@ -64,8 +52,172 @@
                 <% } %>
         </section>
     </div>
-
     <script src="scripts/script.js"></script>
+</body>
+
+</html> -->
+
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mrunal's Literary Gazette</title>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700;900&family=Crimson+Text:ital,wght@0,400;0,600;1,400&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="styles/main.css" />
+</head>
+
+<body>
+    <div class="newspaper">
+        <header class="masthead">
+            <h1 class="newspaper-name">Mrunal's Literary Gazette</h1>
+            <p class="tagline">A Chronicle of Books Read & Wisdom Gathered</p>
+            <div class="publication-info">
+                <span class="date" id="current-date"></span>
+                <span class="edition">Personal Reading Edition</span>
+            </div>
+        </header>
+
+        <section class="controls-section">
+            <h2 class="section-header">Search Archives</h2>
+            <form action="/search" method="GET" class="search-controls">
+                <div class="form-group">
+                    <label for="search-bar">Book Title</label>
+                    <input type="text" id="search-bar" name="bookName" placeholder="Enter book title...">
+                </div>
+                <div class="form-group">
+                    <label for="date-filter">Date Read</label>
+                    <input type="date" id="date-filter" name="bookdate">
+                </div>
+                <div class="form-group">
+                    <label for="rating-filter">Rating</label>
+                    <select id="rating-filter" name="bookrating">
+                        <option value="">All Ratings</option>
+                        <option value="10">10 - Masterpiece</option>
+                        <option value="9">9 - Excellent</option>
+                        <option value="8">8 - Great</option>
+                        <option value="7">7 - Good</option>
+                        <option value="6">6 - Fair</option>
+                        <option value="5">5 - Average</option>
+                        <option value="4">4 - Below Average</option>
+                        <option value="3">3 - Poor</option>
+                        <option value="2">2 - Very Poor</option>
+                        <option value="1">1 - Terrible</option>
+                    </select>
+                </div>
+                <!-- <button type="submit" class="btn">Search</button> -->
+                <div class="button-group">
+                    <button type="submit" class="btn">Search</button>
+                    <button type="button" class="btn btn-clear" onclick="clearFilters()">Clear Filters</button>
+                </div>
+                <!-- <a href="/add" class="add-book-btn" title="Add New Review">+</a> -->
+                <a href="/add" class="add-review-btn" title="Submit New Book Review">
+                    <span class="btn-icon">✍</span>
+                    <span class="btn-text">New Review</span>
+                </a>
+            </form>
+        </section>
+
+        <section class="books-section">
+            <h2 class="book-reviews-header">Literary Reviews</h2>
+
+            <!-- Sample book review - you would loop through your books here -->
+            <% for (let book of books) { %>
+                <article class="book-review">
+                    <img src="<%= book.coverUrl %>" alt="Sample Book Cover" class="book-cover">
+                    <div class="book-details">
+                        <h3 class="book-title">
+                            <%= book.title %>
+                        </h3>
+                        <div class="book-meta">
+                            <div class="meta-item">
+                                <span class="meta-label">Date Read:</span>
+                                <span>
+                                    <%= new Date(book.date_read).toISOString().slice(0, 10) %>
+                                </span>
+                            </div>
+                            <div class="meta-item">
+                                <span class="meta-label">Rating:</span>
+                                <span class="rating">
+                                    <%= book.rating %>/10
+                                </span>
+                            </div>
+                        </div>
+                        <p class="book-summary">
+                            <%= book.summary %>
+                        </p>
+                        <div class="book-actions">
+                            <a href="/edit/<%=book.id%>" class="btn btn-small btn-edit">Edit Review</a>
+                            <button class="btn btn-small btn-delete"
+                                onclick="deleteBook(`<%=book.id%>`)">Delete</button>
+                        </div>
+                    </div>
+                </article>
+
+                <% } %>
+                    <div class="ornamental-border"></div>
+        </section>
+    </div>
+
+    <script>
+
+        // Get today's date
+        const today = new Date();
+
+        // Format options
+        const options = { weekday: 'long', year: 'numeric', month: 'long', day: 'numeric' };
+
+        // Put formatted date into span
+        document.getElementById('current-date').textContent = today.toLocaleDateString('en-US', options);
+
+
+        function deleteBook(bookId) {
+            if (confirm('Are you sure you want to delete this book review?')) {
+                // Create form dynamically for delete action
+                const form = document.createElement('form');
+                form.method = 'POST';
+                form.action = '/delete';
+
+                const input = document.createElement('input');
+                input.type = 'hidden';
+                input.name = 'bookId';
+                input.value = bookId;
+
+                form.appendChild(input);
+                document.body.appendChild(form);
+                form.submit();
+            }
+        }
+
+        function clearFilters() {
+            // Clear all form fields
+            document.getElementById('search-bar').value = '';
+            document.getElementById('date-filter').value = '';
+            document.getElementById('rating-filter').selectedIndex = 0;
+
+            // Redirect to home page to show all books
+            window.location.href = '/';
+        }
+
+        // Add subtle animations
+        document.addEventListener('DOMContentLoaded', function () {
+            const bookCovers = document.querySelectorAll('.book-cover');
+
+            bookCovers.forEach(cover => {
+                cover.addEventListener('mouseenter', function () {
+                    this.style.transform = 'scale(1.02) rotate(1deg)';
+                });
+
+                cover.addEventListener('mouseleave', function () {
+                    this.style.transform = 'scale(1) rotate(0deg)';
+                });
+            });
+        });
+    </script>
 </body>
 
 </html>

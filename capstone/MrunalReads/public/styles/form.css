@@ -1,4 +1,4 @@
-body {
+/* body {
     font-family: 'Georgia', serif;
     background-color: #f3ece7;
     margin: 0;
@@ -107,4 +107,304 @@ a:hover {
     .book-form button[type="submit"] {
         font-size: 1rem;
     }
+} */
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
 }
+
+body {
+    font-family: 'Crimson Text', serif;
+    background: linear-gradient(45deg, #f4f1eb 25%, transparent 25%),
+        linear-gradient(-45deg, #f4f1eb 25%, transparent 25%),
+        linear-gradient(45deg, transparent 75%, #f4f1eb 75%),
+        linear-gradient(-45deg, transparent 75%, #f4f1eb 75%);
+    background-size: 20px 20px;
+    background-position: 0 0, 0 10px, 10px -10px, -10px 0px;
+    background-color: #faf8f3;
+    color: #2c2420;
+    line-height: 1.6;
+    margin: 0;
+    padding: 40px 20px;
+    min-height: 100vh;
+}
+
+.form-container {
+    max-width: 700px;
+    margin: 0 auto;
+    background: #fefdfb;
+    box-shadow: 0 0 30px rgba(0, 0, 0, 0.15);
+    border: 3px double #8b7355;
+    position: relative;
+}
+
+.form-container::before {
+    content: '';
+    position: absolute;
+    top: -2px;
+    left: -2px;
+    right: -2px;
+    bottom: -2px;
+    background: #8b7355;
+    z-index: -1;
+    border: 1px solid #6b5a45;
+}
+
+.form-header {
+    text-align: center;
+    padding: 30px 40px 25px;
+    border-bottom: 4px double #8b7355;
+    background: linear-gradient(180deg, #fefdfb 0%, #f8f6f0 100%);
+}
+
+.form-title {
+    font-family: 'Playfair Display', serif;
+    font-size: 2.5rem;
+    font-weight: 900;
+    color: #2c2420;
+    text-shadow: 2px 2px 0px #e8e3d8;
+    letter-spacing: 1px;
+    margin-bottom: 8px;
+    text-transform: uppercase;
+}
+
+.form-subtitle {
+    font-size: 1.1rem;
+    color: #5a4a3a;
+    font-style: italic;
+    letter-spacing: 0.5px;
+    margin-bottom: 15px;
+}
+
+.gazette-info {
+    font-size: 0.9rem;
+    color: #6b5a45;
+    border-top: 1px solid #d4c8b8;
+    padding-top: 10px;
+}
+
+.form-content {
+    padding: 40px 40px 30px;
+}
+
+.section-header {
+    font-family: 'Playfair Display', serif;
+    font-size: 1.4rem;
+    font-weight: 700;
+    color: #2c2420;
+    margin-bottom: 25px;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    border-bottom: 2px solid #8b7355;
+    padding-bottom: 8px;
+    text-align: center;
+}
+
+.book-form {
+    display: flex;
+    flex-direction: column;
+    gap: 25px;
+}
+
+.form-group {
+    display: flex;
+    flex-direction: column;
+}
+
+.form-group label {
+    font-family: 'Playfair Display', serif;
+    font-size: 1.1rem;
+    font-weight: 600;
+    color: #2c2420;
+    margin-bottom: 8px;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.form-group label::before {
+    content: "❦";
+    color: #8b7355;
+    font-size: 0.9rem;
+}
+
+.form-group input,
+.form-group textarea {
+    padding: 12px 15px;
+    border: 2px solid #d4c8b8;
+    background: #fefdfb;
+    font-family: 'Crimson Text', serif;
+    font-size: 1.1rem;
+    color: #2c2420;
+    transition: all 0.3s ease;
+    border-radius: 0;
+}
+
+.form-group input:focus,
+.form-group textarea:focus {
+    outline: none;
+    border-color: #8b7355;
+    box-shadow: 0 0 10px rgba(139, 115, 85, 0.2);
+    background: #fffffb;
+}
+
+.form-group textarea {
+    resize: vertical;
+    min-height: 120px;
+    font-family: 'Crimson Text', serif;
+    line-height: 1.7;
+}
+
+.rating-group {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    flex-wrap: wrap;
+}
+
+.rating-input {
+    width: 80px !important;
+    text-align: center;
+    font-weight: 600;
+}
+
+.rating-guide {
+    font-size: 0.9rem;
+    color: #6b5a45;
+    font-style: italic;
+    margin-top: 5px;
+}
+
+.submit-section {
+    text-align: center;
+    padding-top: 20px;
+    border-top: 1px dotted #bbb;
+    margin-top: 10px;
+}
+
+.submit-btn {
+    background: linear-gradient(135deg, #8b7355 0%, #6b5a45 100%);
+    color: #fefdfb;
+    border: none;
+    font-family: 'Playfair Display', serif;
+    font-size: 1.2rem;
+    font-weight: 700;
+    cursor: pointer;
+    padding: 15px 40px;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    transition: all 0.3s ease;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+    position: relative;
+    overflow: hidden;
+}
+
+.submit-btn:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 6px 20px rgba(0, 0, 0, 0.3);
+    background: linear-gradient(135deg, #6b5a45 0%, #5a4935 100%);
+}
+
+.submit-btn:active {
+    transform: translateY(0);
+}
+
+.back-link {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    color: #8b7355;
+    text-decoration: none;
+    font-family: 'Crimson Text', serif;
+    font-size: 1rem;
+    margin-top: 20px;
+    transition: all 0.2s ease;
+    padding: 8px 15px;
+    border: 1px solid transparent;
+}
+
+.back-link:hover {
+    color: #2c2420;
+    border-color: #d4c8b8;
+    background: #f8f6f0;
+    text-decoration: none;
+}
+
+.back-link::before {
+    content: "←";
+    font-size: 1.2rem;
+}
+
+.ornamental-divider {
+    text-align: center;
+    margin: 30px 0 20px;
+    color: #8b7355;
+    font-size: 1.5rem;
+}
+
+.ornamental-divider::before {
+    content: "❦ ❦ ❦";
+}
+
+.form-note {
+    background: #f8f6f0;
+    border-left: 4px solid #8b7355;
+    padding: 15px 20px;
+    margin-bottom: 25px;
+    font-style: italic;
+    color: #5a4a3a;
+}
+
+@media (max-width: 768px) {
+    .form-container {
+        margin: 0 10px;
+    }
+
+    .form-title {
+        font-size: 2rem;
+    }
+
+    .form-header,
+    .form-content {
+        padding: 25px 20px;
+    }
+
+    .rating-group {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 10px;
+    }
+
+    .submit-btn {
+        width: 100%;
+        padding: 15px;
+    }
+}
+
+/* Vintage paper texture overlay */
+.form-container::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: url("data:image/svg+xml,%3Csvg width='100' height='100' xmlns='http://www.w3.org/2000/svg'%3E%3Cdefs%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3C/defs%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)' opacity='0.02'/%3E%3C/svg%3E");
+    pointer-events: none;
+}
+
+/* Input validation styles */
+.form-group input:valid,
+.form-group textarea:valid {
+    border-color: #7a9c59;
+}
+
+.form-group input:invalid:not(:placeholder-shown),
+.form-group textarea:invalid:not(:placeholder-shown) {
+    border-color: #c17a6b;
+}
+

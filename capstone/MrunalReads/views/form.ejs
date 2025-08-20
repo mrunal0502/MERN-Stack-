@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+<!-- <!DOCTYPE html>
 <html lang="en">
 
 <head>
@@ -10,37 +10,142 @@
 
 <body>
     <div class="container">
-
         <header>
             <h1>
                 <%= editing ? 'Update Book' : 'Add a New Book' %>
             </h1>
         </header>
         <form action="<%= editing ? '/edit/' + book.id : '/add' %>" method="POST" class="book-form">
-            <div>
-                <label for="title">Title:</label>
-                <input type="text" id="title" name="title" required value="<%= book ? book.title : '' %>" />
-            </div>
-            <div>
-                <label for="date_read">Date Read:</label>
-                <input type="date" id="date_read" name="date_read" required
+            <div> <label for="title">Title:</label> <input type="text" id="title" name="title" required
+                    value="<%= book ? book.title : '' %>" /> </div>
+            <div> <label for="date_read">Date Read:</label> <input type="date" id="date_read" name="date_read" required
                     value="<%= book && book.date_read ? new Date(book.date_read).toISOString().slice(0,10) : '' %>" />
             </div>
-            <div>
-                <label for="rating">Rating (1-10):</label>
-                <input type="number" id="rating" name="rating" min="1" max="10" required
-                    value="<%= book ? book.rating : '' %>" />
-            </div>
-            <div>
-                <label for="summary">Summary:</label>
-                <textarea id="summary" name="summary" rows="4" required><%= book ? book.summary : '' %></textarea>
-            </div>
-            <button type="submit">
+            <div> <label for="rating">Rating (1-10):</label> <input type="number" id="rating" name="rating" min="1"
+                    max="10" required value="<%= book ? book.rating : '' %>" /> </div>
+            <div> <label for="summary">Summary:</label> <textarea id="summary" name="summary" rows="4"
+                    required><%= book ? book.summary : '' %></textarea> </div> <button type="submit">
                 <%= editing ? 'Update Book' : 'Add Book' %>
             </button>
-        </form>
-        <a href="/" style="display:inline-block; margin-top:1rem;">&larr; Back to list</a>
+        </form> <a href="/" style="display:inline-block; margin-top:1rem;">&larr; Back to list</a>
     </div>
+</body>
+
+</html> -->
+
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Literary Submission Form - Mrunal's Gazette</title>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700;900&family=Crimson+Text:ital,wght@0,400;0,600;1,400&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="/styles/form.css" />
+</head>
+
+<body>
+    <div class="form-container">
+        <header class="form-header">
+            <!-- <h1 class="form-title">Literary Submission</h1> -->
+            <h1 class="form-title">
+                <%= editing ? 'Update Literary Review' : 'Literary Submission' %>
+            </h1>
+            <p class="form-subtitle">Add Your Latest Reading Adventure</p>
+            <div class="gazette-info">Mrunal's Literary Gazette - Editorial Department</div>
+        </header>
+
+        <div class="form-content">
+            <h2 class="section-header">Book Review Submission Form</h2>
+
+            <!-- <div class="form-note">
+                <strong>Editorial Guidelines:</strong> Please provide detailed and thoughtful reviews that would be
+                worthy of publication in our esteemed literary gazette. Your insights help fellow readers discover their
+                next great adventure.
+            </div> -->
+
+            <!-- This would be your EJS template in practice -->
+            <form action="<%= editing ? '/edit/' + book.id : '/add' %>" method="POST" class="book-form">
+                <div class="form-group">
+                    <label for="title">Book Title</label>
+                    <input type="text" id="title" name="title" required value="<%= book ? book.title : '' %>" />
+                </div>
+
+                <div class="form-group">
+                    <label for="date_read">Date Completed</label>
+                    <input type="date" id="date_read" name="date_read" required
+                        value="<%= book && book.date_read ? new Date(book.date_read).toISOString().slice(0,10) : '' %>" />
+                </div>
+
+                <div class="form-group">
+                    <label for="rating">Literary Merit Rating</label>
+                    <div class="rating-group">
+                        <input type="number" id="rating" name="rating" min="1" max="10" required class="rating-input"
+                            value="<%= book ? book.rating : '' %>" />
+                        <div class="rating-guide">
+                            1-3: Poor | 4-5: Fair | 6-7: Good | 8-9: Excellent | 10: Masterpiece
+                        </div>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label for="summary">Critical Review</label>
+                    <textarea id="summary" name="summary" required><%= book ? book.summary : '' %></textarea>
+                </div>
+
+                <div class="submit-section">
+                    <button type="submit" class="submit-btn">
+                        <%= editing ? 'Update Review' : 'Publish Review' %>
+                    </button>
+                </div>
+            </form>
+        </div>
+    </div>
+
+    <script>
+        // Add some interactive enhancements
+        document.addEventListener('DOMContentLoaded', function () {
+            const inputs = document.querySelectorAll('input, textarea');
+
+            inputs.forEach(input => {
+                input.addEventListener('focus', function () {
+                    this.parentElement.style.transform = 'scale(1.02)';
+                    this.parentElement.style.transition = 'transform 0.2s ease';
+                });
+
+                input.addEventListener('blur', function () {
+                    this.parentElement.style.transform = 'scale(1)';
+                });
+            });
+
+            // Rating input enhancement
+            const ratingInput = document.getElementById('rating');
+            const ratingGuide = document.querySelector('.rating-guide');
+
+            ratingInput.addEventListener('input', function () {
+                const value = parseInt(this.value);
+                if (value >= 1 && value <= 10) {
+                    let description = '';
+                    if (value <= 3) description = 'Poor - Disappointing read';
+                    else if (value <= 5) description = 'Fair - Has some merit';
+                    else if (value <= 7) description = 'Good - Enjoyable read';
+                    else if (value <= 9) description = 'Excellent - Highly recommended';
+                    else description = 'Masterpiece - Literary perfection';
+
+                    ratingGuide.textContent = `${value}/10 - ${description}`;
+                    ratingGuide.style.color = '#2c2420';
+                    ratingGuide.style.fontWeight = '600';
+                } else {
+                    ratingGuide.textContent = '1-3: Poor | 4-5: Fair | 6-7: Good | 8-9: Excellent | 10: Masterpiece';
+                    ratingGuide.style.color = '#6b5a45';
+                    ratingGuide.style.fontWeight = 'normal';
+                }
+            });
+        });
+    </script>
 </body>
 
 </html>
