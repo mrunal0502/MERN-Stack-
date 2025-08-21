@@ -47,6 +47,7 @@ A beautifully crafted full-stack book review platform inspired by vintage newspa
 - **CSS3** - Advanced styling with gradients, animations, and responsive design
 - **JavaScript** - Interactive functionality and form handling
 - **Google Fonts** - Typography (Playfair Display, Crimson Text)
+- ### Note: My main focus was backend development. For frontend aesthetics (UI/UX), I used Claude’s help to quickly set up a minimal design while I concentrated on backend concepts.
 
 ## 🚀 Getting Started
 
