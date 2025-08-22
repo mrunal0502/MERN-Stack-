@@ -47,6 +47,7 @@ A beautifully crafted full-stack book review platform inspired by vintage newspa
 - **CSS3** - Advanced styling with gradients, animations, and responsive design
 - **JavaScript** - Interactive functionality and form handling
 - **Google Fonts** - Typography (Playfair Display, Crimson Text)
+- ### Note: My main focus was backend development. For frontend aesthetics (UI/UX), I used Claude’s help to quickly set up a minimal design while I concentrated on backend concepts.
 
 ## 🚀 Getting Started
 
@@ -213,8 +214,8 @@ This project is licensed under the MIT License - see the [LICENSE](LICENSE) file
 
 **Mrunal** - _Full Stack Developer_
 
-- GitHub: [@yourusername](https://github.com/mrunal0502)
-- LinkedIn: [Your LinkedIn](https://linkedin.com/in/mrunalrawade)
+- GitHub: [mrunal0502](https://github.com/mrunal0502)
+- LinkedIn: [mrunalrawade](https://linkedin.com/in/mrunalrawade)
 
 ## 🙏 Acknowledgments
 
@@ -225,7 +226,14 @@ This project is licensed under the MIT License - see the [LICENSE](LICENSE) file
 
 ## 📸 Screenshots
 
-_Add screenshots of your application here to showcase the design and functionality_
+### 🏠 Homepage
+![Homepage](./New%20folder/Capture.PNG)
+
+### ➕ Add New Book
+![Add Book](./New%20folder/new%20book.PNG)
+
+### 📚 All Books View
+![All Books](./New%20folder/index%20page.PNG)
 
 ---
 
